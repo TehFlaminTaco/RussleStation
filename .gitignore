@@ -1,0 +1,10 @@
+russlestation/data/*
+russlestation/config/*
+
+*.log
+*.dmb
+*.rsc
+*.int
+*.lk
+*.zip
+*.pub

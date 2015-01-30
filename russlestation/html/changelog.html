@@ -1,0 +1,551 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>BestRP Changelog</title>
+  <link rel="stylesheet" type="text/css" href="changelog.css">
+  <script type='text/javascript'>
+  
+	function changeText(tagID, newText, linkTagID){
+		var tag = document.getElementById(tagID);
+		tag.innerHTML = newText;
+		var linkTag = document.getElementById(linkTagID);
+		linkTag.removeAttribute("href");
+		linkTag.removeAttribute("onclick");
+	}
+
+  </script>  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+<!-- 
+Header Section 
+-->
+<table align='center' width='650'><tr><td>
+<table align='center' class="top">
+	<tr>
+		<td valign='top'>
+			<div align='center'><font size='3'><b>Baystation12/BestRP - The Best SS13 Server</b></font></div>
+			<p><div align='center'><font size='3'><a href="http://forums.bestrpcommunity.com/">Forum</a> | <a href="http://wiki.ss13.us/">Wiki</a> | <a href="https://github.com/Baystation12/Baystation12/">Source</a></font></div></p>
+			<div align='center'><font size='2'><b>Send us an E-Mail:</b> staff.bestrp@gmail.com</font><br>
+			<font size='2'>Donate to aid in developments: <a href="http://www.bestrpcommunity.com/showthread.php?781">Donate</a>.<br><br>
+
+<b><a href="http://www.bestrpcommunity.com/showthread.php?1719">By playing, you're agreeing to read and abide by the rules!</a></b></font></div>
+
+			</td>
+	</tr>
+</table>
+
+<!-- 
+Changelog Section 
+-->
+<!-- NOTE TO UPDATERS!! Please only list things which are important to players. 
+Stuff which is in development and not yet visible to players or just code related 
+(ie. code improvements for expandability, etc.) should not be listed here. They 
+should be listed in the changelog upon commit though. Thanks. -->
+<!-- Notes Section:
+-->
+<!-- Dev Changelog Section:
+-->
+<!-- Update Format:
+<div class="commit sansserif">
+	<h2 class="date"></h2>
+	<h3 class="author"></h3>
+	<ul class="changes bgimages16">
+		<li class='rscadd/rscdel/experiment/imgadd/tweak/bugfix'></li>
+		</ul></div>
+-->
+
+<div class="commit sansserif">
+	<h2 class="date">August 25th, 2014</h2>
+	<h3 class="author">Purlek update:</h3>
+	<ul class="changes bgimages16">
+		<li class='rscadd'><a href="http://gyazo.com/13d19ae0ea0e64ec6d423dc359e31512">Added a message to the heads of staff's game startup message regarding ERP restrictions.</a></li>
+		<li class='tweak'>Industrial backpacks and satchels now carry 14 items, as it would make sense for them to carry more... (Don't you dare abuse this.)</li>
+		</ul></div>
+
+<div class="commit sansserif">
+	<h2 class="date">August 24th, 2014</h2>
+	<h3 class="author">Purlek update:</h3>
+	<ul class="changes bgimages16">
+		<li class='rscadd'>Redesign of Bar and Kitchen! (Kitchen design goes to Huntime! :P)</li>
+		</ul></div>
+
+<div class="commit sansserif">
+	<h2 class="date">August 23rd, 2014</h2>
+	<h3 class="author">Purlek update:</h3>
+	<ul class="changes bgimages16">
+		<li class='bugfix'>Fixed a bunch of grammar errors in items.</li>
+		<li class='tweak'>Changed Service radio from :o to :d.</li>
+		<li class='tweak'>Re-enabled Cyanide... But does it have an effect? I have no idea. I'll worry about this later.</li>
+		<li class='rscadd'>Added Feminine and Formal clothing lockers in the locker room.</li>
+		<li class='rscadd'>Added backpack and satchel lockers to the locker room.</li>
+		<li class='rscadd'>Added flower hair pins to the locker room.</li>
+		<li class='rscadd'>Added a holopad to Virology.</li>
+		<li class='rscadd'>Added sinks to virology patient rooms.</li>
+		<li class='rscadd'>Added another custom song by Pantheris into the Lobby Loop.</li>
+		</ul></div>
+
+<div class="commit sansserif">
+	<h2 class="date">August 23rd, 2014</h2>
+	<h3 class="author">Purlek update:</h3>
+	<ul class="changes bgimages16">
+		<li class='bugfix'>Fixed access requirements for the IAA maintenance door.</li>
+		<li class='tweak'>Changed CMO maintenance door from a transparent door to an opaque door.</li>
+		<li class='tweak'>Made insulated gloves more likely to spawn in place of a wire coil in Electrical Toolboxes. 15% chance.</li>
+		<li class='tweak'>Added a likelihood of a Multitool to spawn in place of a wire coil in Electrical Toolboxes. 50% chance.</li>
+		<li class='tweak'>Added a line to the descriptions of Broken APCs so that players would understand how to fix them, rather than thinking it a bug that nothing can be done with them.</li>
+		<li class='tweak'>Modified small atmospheric storage room in Atmospherics so that the meters near the external pump connectors would function properly.</li>
+		<li class='tweak'>All channels on the Captain's headset are now enabled by default.</li>
+		<li class='rscadd'>Added a Food Services radio for the Barkeep, Chef, and Botanist. Frequency; 146.5.</li>
+		<li class='rscadd'><a href="https://www.youtube.com/watch?v=ZNlq5RbGwvQ">Added a classic SS13 theme song to the lobby loop.</a></li>
+		</ul>
+	<h3 class="author">TehFlaminTaco update:</h3>
+	<ul class="changes bgimages16">
+		<li class='experiment'>Fixed and reimplemented the Meme Gamemode.</li>
+		<li class='bugfix'>Recharge Station Fixes for IPCs.</li>
+		<li class='rscadd'>Added Headset and Encryption Key crates to be ordered by Cargo.</li>
+		</ul></div>
+
+<div class="commit sansserif">
+	<h2 class="date">August 21st, 2014</h2>
+	<h3 class="author">JamieDigweed update:</h3>
+	<ul class="changes bgimages16">
+		<li class='bugfix'>Fixed exploit that permitted players to walk through doors if a certain sequence of actions was performed.</li>
+		<li class='rscadd'>Added some admin stuff.</li>
+		</ul></div>
+
+<div class="commit sansserif">
+	<h2 class="date">August 20th, 2014</h2>
+	<h3 class="author">Purlek update:</h3>
+	<ul class="changes bgimages16">
+		<li class='bugfix'>Fixed View-Admin-Announcement command.</li>
+		<li class='tweak'>Fixed power/lighting in Virology.</li>
+		</ul>
+	<h3 class="author">TehFlaminTaco update:</h3>
+	<ul class="changes bgimages16">
+		<li class='bugfix'>Fixed administrator 'Allow Respawn' command.</li>
+		</ul>
+	<h3 class="author">JamieDigweed update:</h3>
+	<ul class="changes bgimages16">
+		<li class='rscadd'>Added 'Current Developers' to Adminwho.</li>
+		</ul>
+	<h3 class="author">Pantheris update:</h3>
+	<ul class="changes bgimages16">
+		<li class='rscadd'>Added a new nuke sprite.</li>
+		</ul></div>
+		
+<div class="commit sansserif">
+	<h2 class="date">August 19th, 2014</h2>
+	<h3 class="author">Purlek update:</h3>
+	<ul class="changes bgimages16">
+		<li class='rscadd'>Added custom song to lobby music loop. Song by Pantheris.</li>
+		<li class='rscadd'>Added an administrator announcement function.</li>
+		</ul>
+	<h3 class="author">TehFlaminTaco update:</h3>
+	<ul class="changes bgimages16">
+		<li class='bugfix'>Decapitation no longer allows instant respawn.</li>
+		<li class='bugfix'>Being a mouse no longer allows instant respawn.</li>
+		</ul>
+	<h3 class="author">Aztectornado update:</h3>
+	<ul class="changes bgimages16">
+		<li class='bugfix'>Papers can no longer be exploited to execute administrator commands.</li>
+		</ul></div>
+
+<div class="commit sansserif">
+	<h2 class="date">August 18th, 2014</h2>
+	<h3 class="author">TehFlaminTaco update:</h3>
+	<ul class="changes bgimages16">
+		<li class='bugfix'>Accountant can no longer create accounts with infinite money.</li>
+		<li class='rscadd'>Added IPC language; Encoded Audio Language.</li>
+		</ul></div>
+
+<div class="commit sansserif">
+	<h2 class="date">August 15th, 2014</h2>
+	<h3 class="author">Mewth update:</h3>
+	<ul class="changes bgimages16">
+		<li class='experiment'>Redesigned Virology Lab.</li>
+		</ul></div>
+
+<div class="commit sansserif">
+	<h2 class="date">August 13, 2014</h2>
+	<h3 class="author">Purlek update:</h3>
+	<ul class="changes bgimages16">
+		<li class='bugfix'>Fixed Accountant's window-poddoor button.</li>
+		<li class='tweak'>Adjusted contents of Wardens office - fixed inaccessible appliances.</li>
+		<li class='tweak'>Fixed that stupid CE office carpet. :P</li>
+		</ul>
+	<h3 class="author">Silvertorch5 update:</h3>
+	<ul class="changes bgimages16">
+		<li class='rscadd'>Added alternative names for the Chaplain role.</li>
+		<li class='rscadd'>CE locker gets T-Scanner.</li>
+		<li class='rscadd'>Atmos can now get into EVA multispecies locker.</li>
+		<li class='bugfix'>Fixed mining ore delivery system.</li>
+		</ul></div>
+
+<div class="commit sansserif">
+	<h2 class="date">August 10, 2014</h2>
+	<h3 class="author">Aztectornado update:</h3>
+	<ul class="changes bgimages16">
+		<li class='bugfix'>Fixed digitigrade speed/slowdown bugs.</li>
+		<li class='bugfix'>IPCs now heal from hallucinations on their own.</li>
+		<li class='bugfix'>Fixed Genetics lab required door access.</li>
+		</ul>
+	<h3 class="author">Purlek update:</h3>
+	<ul class="changes bgimages16">
+		<li class='rscadd'>Added missing security cameras in Genetics lab and Janitor closet.</li>
+		<li class='bugfix'>Fixed missing turf near Genetics lab.</li>
+		</ul>
+	<h3 class="author">Silvertorch5 update:</h3>
+	<ul class="changes bgimages16">
+		<li class='rscadd'>Added mining GPS's to to Mining Lockers.</li>
+		<li class='tweak'>Mining scanners can now be placed in toolbelts.</li>
+		</ul></div>
+
+<div class="commit sansserif">
+	<h2 class="date">August 9th, 2014</h2>
+	<h3 class="author">Aztectornado update:</h3>
+	<ul class="changes bgimages16">
+		<li class='experiment'>Added a 10,000 credit chip to prevent server crashes when large sums of money are withdrawn.</li>
+		<li class='bugfix'>Fixed IPCs being shocked into paralysis at random from functional airlocks.</li>
+		</ul>
+	<h3 class="author">JamieDigweed update:</h3>
+	<ul class="changes bgimages16">
+		<li class='rscadd'><s>Applied Baystation12 updates.</s>Still in progress... There are a lot.</li>
+		</ul></div>
+
+<div class="commit sansserif">
+	<h2 class="date">August 8th & 9th, 2014</h2>
+	<h3 class="author">Aztectornado update:</h3>
+	<ul class="changes bgimages16">
+		<li class='bugfix'>Fixed the camera and emergency light positioning in Cargo.</li>
+		<li class='rscdel'>Removed the check for silicon lifeforms on vending machines.</li>
+		<li class='experiment'>Added slowdown to digitigrades wearing non-digitigrade shoes.</li>
+		<li class='experiment'>Added digitigrade tags to most compatible shoes.</li>
+		<!-- Developer Update --!>
+		Changed the species restriction to a slowdown code instead.
+
+Important note: When making shoes, use "baseslowdown" instead of
+"slowdown". The latter is handled differently now. (It'll check if
+you're digitigrade, then set that for the speed handling process. If you
+aren't, it'll use the baseslowdown for this. But if you are, and they
+aren't made for you, it'll use a very high slowdown)
+		-->
+		<li class='experiment'>Magclaws are now wearable by other races - added some to general EVA and engineering EVA on the map.</li>
+		<li class='bugfix'>Genetics is back!</li>
+		<li class='rscadd'>Added black gloves to Officer lockers.</li>
+		</ul>
+	<h3 class="author">Purlek update:</h3>
+	<ul class="changes bgimages16">
+		<li class='rscadd'>Redesigned Genetics lab.</li>
+		<li class='rscadd'>Added a briefcase to each Detective's Office.</li>
+		<li class='rscadd'>Added oxygen canisters to Research and Mining stations.</li>
+		<li class='rscadd'>Added a third N2 canister to Engineering secure storage.</li>
+		<li class='rscadd'>Added a filing cabinet to the Virology Lab.</li>
+		<li class='tweak'>Redesign of Chief Engineer's Office by Silvertorch5.</li>
+		<li class='tweak'>Added more reinforced walls to the armoury.</li>
+		</ul>
+	<h3 class="author">Silvertorch5 update:</h3>
+	<ul class="changes bgimages16">
+		<li class='experiment'>Added an experimental bug report button to the player's UI next to the 'Donate' button.</li>
+		</ul>
+	<h3 class="author">JamieDigweed update:</h3>
+	<ul class="changes bgimages16">
+		<li class='bugfix'>Several map tweaks and fixes.</li>
+		</ul></div>
+		
+<div class="commit sansserif">
+	<h2 class="date">June 23rd, 2014</h2>
+	<h3 class="author">JamieDigweed Map Update:</h3>
+	<ul class="changes bgimages16">
+		<li class='imageadd'>New Detectives office made by Mewth.</li>
+		<li class='tweak'>Minor changes to E.V.A.</li>
+		<li class='bugfix'>Refixed Firing range and detective pressure checks.</li>
+		<li class='bugfix'><s>Attempted to fix Skipjack.</s> Fixed Skipjack.</li>
+		</ul></div>
+		
+<div class="commit sansserif">
+	<h2 class="date">June 18th, 2014</h2>
+	<h3 class="author">Jamie Digweed Minor Update:</h3>
+	<ul class="changes bgimages16">
+		<li class='bugfix'>All Coding now has correct station name.</li> 
+		<li class='bugfix'>Renamed All Icarus References (Thanks Finriv).</li>
+		</ul></div>
+		
+<div class="commit sansserif">
+	<h2 class="date">June 17th, 2014</h2>
+	<h3 class="author">Jamie Digweed Update:</h3>
+	<ul class="changes bgimages16">
+		<li class='imageadd'>The station name is now the N.S.S Horizon.</li>
+		</ul></div>
+		
+<div class="commit sansserif">
+	<h2 class="date">June 14th, 2014</h2>
+	<h3 class="author">JamieDigweed Map Updates:</h3>
+	<ul class="changes bgimages16">
+		<li class='imageadd'>Added Firing Range to security</li>
+		<li class='imageadd'>Updated Centcom Walls and Administration Shuttle</li>
+		<li class='bugfix'>Other Minor fixes to Atmos and Security</li>
+		</ul></div>
+<div class="commit sansserif">
+	<h2 class="date">June 12th, 2014</h2>
+	<h3 class="author">Yashaldie update #2:</h3>
+	<ul class="changes bgimages16">
+		<li class='bugfix'>Fixed some map issues(added pepperspray refillers in sec and fixed the maintance doors to require brig/security access and other stuff)</li>
+		<li class='bugfix'>Fixed the Op Table resting bug.  You should now be able to get off the table with the rest command after waking up.</li>
+		<li class='bugfix'>Other baystation bugfix</li>
+		</ul></div>
+<div class="commit sansserif">
+	<h2 class="date">June 8th, 2014</h2>
+	<h3 class="author">Yashaldie update #2:</h3>
+	<ul class="changes bgimages16">
+		<li class='bugfix'>Fixed alot of map issues</li>
+		</ul></div>
+<div class="commit sansserif">
+	<h2 class="date">June 8th, 2014</h2>
+	<h3 class="author">Jamiedigweed's Map update:</h3>
+	<ul class="changes bgimages16">
+		<li class='imageadd'>New Security!</li>
+		<li class='tweak'>Everything is changed in security including new armoury with code blue and code red buttons</li>
+		<li class='rscadd'>All security officers have access to the armoury, there is a armor shutter which can be toggled by the warden on code blue</li>
+		<li class='rscadd'>In addition, there is a Code Red shutter which can be toggled by the HoS in his office on code red</li>
+		<li class='bugfix'>Report all map bugs to myself or if I am not online another admin, thanks</li>
+		<li class='imageadd'>Other minor map editions such as wizard and centcom</li>
+		</ul>
+	<h3 class="author">Yashaldie update:</h3>
+	<ul class="changes bgimages16">
+		<li class='bugfix'>Fixed bug in disposals causing infinite loops</li>
+		<li class='bugfix'>Fixed bug in Hop Access Computer with assigning someone IA rank</li>
+		<li class='rscadd'>Drones now have a 2 stack of plasteel</li>
+		<li class='rscadd'>Drones now have GPS built in</li>
+		<li class='rscdel'>Removed the Virologist Alt title from Medical doctor(should of been removed awhile back)</li>
+		<li class='tweak'>Drones Now can walk under other mobs</li>
+		<li class='tweak'>Drones can no longer access the drone console</li>
+		<li class='tweak'>Drones can now pick up lights with their gripper and also remove lights from fixtures with it also</li>
+		<li class='tweak'>Added more beacons around the map</li>
+		<li class='tweak'>Added more delivery locations to the map</li>
+		</ul></div>
+<div class="commit sansserif">
+	<h2 class="date">June 5th, 2014</h2>
+	<h3 class="author">Baystation's update:</h3>
+	<ul class="changes bgimages16">
+		<li class='rscadd'>Maintance Drone Fabrication(yashaldie comment:You can become one on death(max of 5 on station at a time)We will have a wiki up soon for them)</li>
+		<li class='rscadd'>Personal lockers are now resettable</li>
+		<li class='rscadd'>Take off people's accessories or change their sensors in the drag and drop-interface</li>
+		<li class='rscadd'>Merge paper bundles by hitting one with another</li>
+		<li class='rscdel'>Genetics has been disabled pending a code rewrite (<a href="http://www.bestrpcommunity.com/showthread.php?1357">Genetics Removal</a>)</li>
+		<li class='tweak'>Plasma is now call Phoron all items have been changed to reflect this(yashaldie comment:prepare for some missing icons due to name change)</li>
+		<li class='tweak'>Line breaks in Security, Medical and Employment Records</li>
+		<li class='tweak'>Record printouts will have names on it</li>
+		<li class='tweak'>Set other people's internals in belt and suit storage slots</li>
+		<li class='bugfix'>No longer changing suit sensors while cuffed</li>
+		<li class='bugfix'>No longer emptying other people's pockets when they are not full yet</li>
+		<li class='rscadd'>Clip papers together by hitting a paper with a paper or photo</li>
+		<li class='imageadd'>Adds icons for copied stamps</li>
+		</ul></div>
+<div class="commit sansserif">
+	<h2 class="date">June 1st, 2014</h2>
+	<h3 class="author">Yashaldie's update:</h3>
+	<ul class="changes bgimages16">
+		<li class ="tweak">Map tweaks:rewired solars</li>
+		<li class ="tweak">(jamie digweed)Cargo remodeled now includes sorting and disposals</li>
+		<li class ="tweak">Removed Secret rooms from the station because of metagaming</li>
+		<li class ="rscadd">Will be doing a big update soon will take me a little to finish it :p</li>
+		</ul></div>
+<div class="commit sansserif">
+	<h2 class="date">May 30th, 2014</h2>
+	<h3 class="author">Yashaldie's update:</h3>
+	<ul class="changes bgimages16">
+		<li class ="bugfix">Fixed a bug in borers chat for borers who are spawned by reproduction</li>
+		<li class ="bugfix">Fixed a bug when unconscious you could use the rest command to get up during surgery</li>
+		<li class ="bugfix">Fixed a few other bugs with borers.</li>
+		<li class ="rscadd">Added in some UI elements for Changeling/Vampires/Ninjas</li>
+		<li class ="tweak">Borers will now be able to hear borer chat while in control of a human and will be able to speak to other borers also though use of the Cortical link command.</li>
+		<li class ="tweak">Map tweaks:The Syndicate hideout mobs no longer drop items and the ranged mobs have been removed</li>
+		<li class ="tweak">Other Map tweaks</li>
+		<li class ="bugfix">General Baystation bug fixes</li>
+		</ul></div>
+<div class="commit sansserif">
+	<h2 class="date">May 28th, 2014</h2>
+	<h3 class="author">Yashaldie's update:</h3>
+	<ul class="changes bgimages16">
+		<li class ="bugfix">Removed the debug messages i accidently left in from working on the borer player request bug</li>
+		<li class ="tweak">Borers will now be told their true name(name that is in their link chat) when they become a borer.</li>
+		<li class ="tweak">some Map/mob tweaks</li>
+		<li class ="bugfix">General Baystation bug fixes</li>
+		</ul></div>
+<div class="commit sansserif">
+	<h2 class="date">May 27th, 2014</h2>
+	<h3 class="author">Yashaldie's update:</h3>
+	<ul class="changes bgimages16">
+		<li class ="bugfix">Fixed Borer request player bug</li>
+		<li class ="tweak">You will no longer be able to clone a player if they have a borer inside them(you must remove it first)</li>
+		<li class ="tweak">borer's Dominate Vicitim now silences vitims also</li>
+		<li class ="tweak">Added Mining Scanners to Research outpost</li>
+		</ul></div>
+<div class="commit sansserif">
+	<h2 class="date">May 26th, 2014</h2>
+	<h3 class="author">Yashaldie's update:</h3>
+	<ul class="changes bgimages16">
+		<li class ="bugfix">Fixed bugs in borer say code</li>
+		<li class ="rscadd">Added(back) the ability to wear bedsheets(head_slot)<br>These will now hide your identity and worn items(with the execption of your shoes).<br>They also hide your id so to open doors your id must be in your hand.</br>(Custom sprites for each bedsheet made by me!).</li>
+		<li class ="tweak">Emags will no long drop on the ground when they break</li>
+		<li class ="tweak">Hailer mask no long say Compli-o-Nator instead they just say Hailer-Mask</li>
+		<li class ="tweak">Borer's that join the game after round start(Reproduced or admin spawned) will now properly get objectives and shown at end of round.</li>
+		<li class ="tweak">Added the syndicate playing card deck to uplinks.</li>
+		<li class ="tweak">Got rid of of the cryogenic storage units in north western cryogenic storage. This room is now like the old dorms and is called the resting room.</li>
+		<li class ="tweak">Cryogenics storage area is now name "Cryogenics and Recreation"</li>
+		<li class ="tweak">Dormotoriy bathrooms now renamed to "Central Primary Hall Bathrooms"</li>
+		<li class ="tweak">Other small map tweaks</li>
+		<li class ="bugfix">General Baystation bug fixes</li>
+		</ul></div>
+<div class="commit sansserif">
+	<h2 class="date">May 25th, 2014</h2>
+	<h3 class="author">Yashaldie's update:</h3>
+	<ul class="changes bgimages16">
+		<li class ="bugfix">Fixed mice/spiderbot/borer's hide commands</li>
+		<li class ="rscadd">Added new spiderbot sprites <br> also added a verb to allow them to fly their base speed has been slowed but when they fly they go faster</br>They also get a command to change their color's once chosen you cannot change them again.</li>
+		<li class ="rscadd">Many fixes to borers also made directional sprites for them.</li>
+		<li class ="rscadd">Added a new borer game mode</li>
+		<li class ="tweak">Security Hailer Gas Mask are no longer gas mask and are now called Hailer Mask their sprites have been redone to reflect this change.these now are aviable to all security officers via their lockers. warden and hos varients are still located in their respective lockers.</li>
+		<li class ="tweak">A few Map tweaks including changing the space pod's bay airlock.</li>
+		</ul></div>
+<div class="commit sansserif">
+	<h2 class="date">May 23rd, 2014</h2>
+	<h3 class="author">Yashaldie's update:</h3>
+	<ul class="changes bgimages16">
+		<li class ="bugfix">Fixed a bug in diona nymph's dead say code</li>
+		<li class ="bugfix">Fixed a bug where Pai holograms could block throw items and could be attacked via alt click</li>
+		<li class ="rscadd">Added Security Hailer Gas Mask Hos,Warden have their own type in their locker's Secruity officers must obtain the standard ones from the warden or HoS.</li>
+		<li class ="rscadd">Added in a Honk command when wearing a clown mask(now you can use that red honking nose!)</li>
+		<li class ="rscadd">Monkeys now see item action buttons for flashlights,jetpacks,etc in the top left of their screen</li>
+		<li class ="rscadd">Added in a few new item action buttons (top left of the screen like flashlights and jetpacks) for Clown mask, Sec Hailer mask, Flashes, and standard hailers.</li>
+		<li class ="rscadd">Added in a coffee machine to cargo</li>
+		<li class ="tweak">Jamie Digweed's Map tweaks</li>
+		</ul></div>
+<div class="commit sansserif">
+	<h2 class="date">May 21st, 2014</h2>
+	<h3 class="author">Yashaldie's update:</h3>
+	<ul class="changes bgimages16">
+		<li class ="bugfix">Fixed a bug in diona nymph's say code</li>
+		<li class ="bugfix">Fixed humanoid diona and diona nymph's suicide command</li>
+		<li class ="bugfix">Fixed a bug not allowing diona nymph's to get out of storage items like backpacks with the resist command</li>
+		<li class ="tweak">pAI's Can now use hologram's from their pAI card instead of when put in a helmet! <br> They can now be put onto any head slot item.  <br>When a pai is put into a storage item or inside an object(not clothing) they won't be able use their hologram.</li>
+		<li class ="rscadd">Jamie Digweed's Map updates</li>
+		</ul></div>
+<div class="commit sansserif">
+	<h2 class="date">May 20th, 2014</h2>
+	<h3 class="author">Yashaldie's Monkeying around update:</h3>
+	<ul class="changes bgimages16">
+		<li class ="bugfix">Fixed a few bugs in Monkey's say code(whisper should be fixed and monkey's now have their correct speaking verb (chimpers,mews,etc)</li>
+		<li class ="tweak">Monkey's can now travel though vents with backpack and mask on (still can't have items in your paws)</li>
+		<li class ="tweak">Diona nymphs vent crawl command has been moved to the diona tab"</li>
+		<li class ="tweak">Diona nymphs have had their own mask/back items sprites remade to fit them better</li>
+		<li class ="tweak">Monkey's can now use the swap hand and equip item ui buttons"</li>
+		<li class ="tweak">Mice now have a 50 percent chance to spawn fur instead of meat when a knife is used on them or when put though a gibber</li>
+		<li class ="tweak">Added in a bunch of new orderable supply crates</li>
+		<li class ="tweak">Adjusted some mineral spawn rates</li>
+		<li class ="tweak">The Vox Shuttle will now start with Nitrogen atmos</li>
+		<li class ="tweak">The Vox UI O2 alert has been change to show N instead of O2</li>
+		<li class ="tweak">Sleepers now report how many units of other chemicals in the body that are not chemicals it has.</li>
+		<li class ="tweak">Sleepers now report Human's Blood Volume.</li>
+		<li class ="rscadd">Added a new Monkey(all monkey species) exclusive langauge (Washoe :6)</li>
+		<li class ="rscadd">While a mob is in a sleeper you can now inject them with the chemicals from the beaker stored inside.</li>
+		<li class ="rscadd">Few map updates</li>
+		</ul></div>
+<div class="commit sansserif">
+	<h2 class="date">May 18th, 2014</h2>
+	<h3 class="author">Yashaldie & Jamiedigweed update:</h3>
+	<ul class="changes bgimages16">
+		<li class ="bugfix">General baystation bugfix</li>
+		<li class ="bugfix">Fixed diona nymphs languages being able to be understood by all"</li>
+		<li class ="rscdel">Removed Radio-enabled MMI for now until i can fix a bug in them"</li>
+		<li class ="rscadd">Few map updates</li>
+		</ul></div>
+<div class="commit sansserif">
+	<h2 class="date">May 17th, 2014</h2>
+	<h3 class="author">Yashaldie & Jamiedigweed update:</h3>
+	<ul class="changes bgimages16">
+		<li class ="bugfix">General baystation bugfix</li>
+		<li class ="rscadd">Few map updates including a Recyler in Waste Disposal which will recyler items in useful materials</li>
+		</ul></div>
+<div class="commit sansserif">
+	<h2 class="date">May 14th, 2014</h2>
+	<h3 class="author">Yashaldie update:</h3>
+	<ul class="changes bgimages16">
+		<li class ="bugfix">General bugfix(mainly species sprites)</li>
+		<li class ="bugfix">Fire with Rigs/suits is still bugged waiting for baystation fix for this.</li>
+		<li class ="bugfix">Added a few baystation bugfix</li>
+		</ul></div>
+<div class="commit sansserif">
+	<h2 class="date">May 9th, 2014</h2>
+	<h3 class="author">Yashaldie update:</h3>
+	<ul class="changes bgimages16">
+		<li class ="bugfix">General Map Fixes</li>
+		<li class ="rscadd">Unathi and Skrell species now come in multicolor!</li>
+		<li class ="rscadd">ID Computer's assignment list has been updated to be easier to look though</li>
+		<li class ="rscadd">Added 11 new IPC Screens(hair)(from baystation dev)</li>
+		<li class ="tweak">The Virologist job is now back to being its own job medical doctors will not have access to virology unless they get it from the HoP</li>
+		</ul>
+	<h3 class="author">Baystation update:</h3>
+	<ul class="changes bgimages16">
+		<li class ="tweak">New Diona Sprites</li>
+		<li class ="tweak">Rigs have had their resistances tweaked</b></li>
+		<li class ="tweak">tweaks to cell chargers charge rates</li>
+		<li class ="bugfix">Fixed Partial Prints(the more you touch something to more likely you will leave a full print)</li>
+		<li class ="bugfix">Fixes to air alarms using more power than they should of.</li>
+		</ul></div>
+<div class="commit sansserif">
+	<h2 class="date">May 5th, 2014</h2>
+	<h3 class="author">Yashaldie update:</h3>
+	<ul class="changes bgimages16">
+		<li class ="bugfix">General Say code bug fixes</li>
+		<li class ="rscadd">Changed around the atmos on the mining station(now each airlock has its own air canisters and the main atmos has a few more too)</li>
+		<li class ="rscadd">Added a Docking bay for the Prison Shuttle at station and prison!(yea no more lossing atmos when shuttle moves and someone opens the door!)</li>
+		<li class ="rscadd">Map Changes to Prison for my OCD</li>
+		</ul>
+	<h3 class="author">Baystation update:</h3>
+	<ul class="changes bgimages16">
+		<li class ="tweak">Diona nymphs now have a more lore-friendly adult transformation message.</li>
+		<li class ="tweak">Diona nymphs no longer have blackouts when leaving inventory and holders will update their icons properly.<b>(Yashaldie Notes:i already did this myself but I liked they way they did it...)</b></li>
+		<li class ="tweak">Robot components now track damage and replacing a component will reset the damage to 0.</li>
+		<li class ="tweak">Robots will now take burn damage from burn projectiles, rather than taking brute from all projectiles.</li>
+		<li class ="tweak">Cavity implants (like grenades) will now show up on the advanced body scanner.</li>
+		<li class ="bugfix">fix zburn /0 runtime</li>
+		<li class ="tweak">IPC Tweaks<b>(Yashaldie Notes:i already did most of them myself awhile back...)</b></li>
+		</ul></div>
+<div class="commit sansserif">
+	<h2 class="date">May 4th, 2014</h2>
+	<h3 class="author">Yashaldie update:</h3>
+	<ul class="changes bgimages16">
+		<li class "bugfix">Fixed Ripley Torso missing icon</li>
+		<li class "bugfix">"I've" Fixed gutter speak causing weird chat glitch(see what i did their :p)</li>
+		<li class "bugfix">Added a few baystation Say code bugfix</li>
+		<li class "tweak">Ghost will no longer see these human emotes(giggle,cough,drool,twitch,shiver,sneeze,scream,collapse and groan)</li>
+		<li class "tweak">Changed oil,red,orange slimes cores results when injected with blood/plasma.<br>Red/Oil core:When injected with plasma will now give you Slime Glycerol. When injected with blood will now spawn a monkey cube.<br>Orange Core:When injected with blood/plasma will now give you Slime Capsaicin Oil</li>
+		<li class "tweak">Forgot to upload correct map in the last update...</li>
+		</ul></div>
+<div class="commit sansserif">
+	<h2 class="date">May 3rd, 2014</h2>
+	<h3 class="author">Yashaldie update:</h3>
+	<ul class="changes bgimages16">
+		<li class ="bugfix">Fixed Diona's nymphs not able to use langauges(will now learn common with the 3rd blood sample)</li>
+		<li class ="bugfix">Fixed issue with recharge station floor tiles not having damaged sprites</li>
+		<li class ="bugfix">Fixed packages not making their way to research.</li>
+		<li class ="bugfix">Fixed not being able to use capital R/L for right/left hand Radio talk ex(:R/:L/#R/#L/.R/.L).</li>
+		<li class ="bugfix">Fixed Space Ninja Gloves to still be shock proof when made into stun gloves(again....)</li>
+		<li class ="rscadd">Added in Space Pod construction</li>
+		<li class ="rscadd">You can now recharge Space pods in the Space Pod Bay</li>
+		<li class ="rscadd">You can now pickup objects and mobs(that are knocked out or dead).  You can empty the contents of the space pod either inside or outside the pod</li>
+		<li class ="rscadd">Space Pods will be able to cycle the Space Pod Bay's airlocks via a command in the space pod tab(will only work with the Space Pod Bay airlocks</li>
+		<li class ="tweak">You can now eject the passengers from a space pod as long as it stays still</li>
+		<li class ="tweak">Space pods can now be damaged by projectiles and repaired via welding tool</li>
+		<li class ="tweak">If shot or hit by an emp blast the player will loose input control for a short time.</li>
+		<li class ="tweak">Changed map around for new Space Pod Bay</li>
+		<li class ="tweak">Changed some stuff on the Nuke Ops shuttle</li>
+		</ul></div>
+
+
+<!-- 
+Credits Section 
+-->

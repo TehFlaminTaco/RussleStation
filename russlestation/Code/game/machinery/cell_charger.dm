@@ -1,0 +1,150 @@
+/obj/machinery/cell_charger
+	name = "cell charger"
+	desc = "It charges power cells."
+	icon = 'icons/obj/power.dmi'
+	icon_state = "ccharger0"
+	anchored = 1
+	use_power = 1
+	idle_power_usage = 5
+	active_power_usage = 60
+	power_channel = EQUIP
+	var/obj/item/weapon/cell/charging = null
+	var/chargelevel = -1
+	var/efficiency = 0.875	//<1.0 means some power is lost in the charging process, >1.0 means free energy.
+	proc
+		updateicon()
+			icon_state = "ccharger[charging ? 1 : 0]"
+			if(use_power)
+				if(charging && !(stat & (BROKEN|NOPOWER)))
+
+					var/newlevel = 	round(charging.percent() * 4.0 / 99)
+					//world << "nl: [newlevel]"
+
+					if(chargelevel != newlevel)
+						switch(newlevel)
+							if(0)
+								chargelevel = 0
+								overlays.Cut()
+								overlays += "ccharger-o0"
+							if(1)
+								chargelevel = 1
+								overlays.Cut()
+								overlays += "ccharger-o1"
+							if(2)
+								chargelevel = 2
+								overlays.Cut()
+								overlays += "ccharger-o2"
+							if(3)
+								chargelevel = 3
+								overlays.Cut()
+								overlays += "ccharger-o3"
+							if(4)
+								chargelevel = 4
+								overlays.Cut()
+								overlays += "ccharger-o4"
+
+
+			else if (use_power == 0)
+				if(charging)
+
+					var/newlevel = 	round(charging.percent() * 4.0 / 99)
+					//world << "nl: [newlevel]"
+
+					if(chargelevel != newlevel)
+						switch(newlevel)
+							if(0)
+								chargelevel = 0
+								overlays.Cut()
+								overlays += "ccharger-o0"
+							if(1)
+								chargelevel = 1
+								overlays.Cut()
+								overlays += "ccharger-o1"
+							if(2)
+								chargelevel = 2
+								overlays.Cut()
+								overlays += "ccharger-o2"
+							if(3)
+								chargelevel = 3
+								overlays.Cut()
+								overlays += "ccharger-o3"
+							if(4)
+								chargelevel = 4
+								overlays.Cut()
+								overlays += "ccharger-o4"
+
+
+			else
+				overlays.Cut()
+	examine()
+		set src in oview(5)
+		..()
+		usr << "There's [charging ? "a" : "no"] cell in the charger."
+		if(charging)
+			usr << "Current charge: [charging.charge]"
+
+	attackby(obj/item/weapon/W, mob/user)
+		if(stat & BROKEN)
+			return
+
+		if(istype(W, /obj/item/weapon/cell) && anchored)
+			if(charging)
+				user << "\red There is already a cell in the charger."
+				return
+			else
+				var/area/a = loc.loc // Gets our locations location, like a dream within a dream
+				if(!isarea(a))
+					return
+				if(a.power_equip == 0 && src.use_power == 1) // There's no APC in this area, don't try to cheat power!
+					user << "\red The [name] blinks red as you try to insert the cell!"
+					return
+
+				user.drop_item()
+				W.loc = src
+				charging = W
+				user.visible_message("[user] inserts a cell into the charger.", "You insert a cell into the charger.")
+				chargelevel = -1
+			updateicon()
+		else if(istype(W, /obj/item/weapon/wrench))
+			if(charging)
+				user << "\red Remove the cell first!"
+				return
+
+			anchored = !anchored
+			user << "You [anchored ? "attach" : "detach"] the cell charger [anchored ? "to" : "from"] the ground"
+			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+
+	attack_hand(mob/user)
+		if(charging)
+			usr.put_in_hands(charging)
+			charging.add_fingerprint(user)
+			charging.updateicon()
+
+			src.charging = null
+			user.visible_message("[user] removes the cell from the charger.", "You remove the cell from the charger.")
+			chargelevel = -1
+			updateicon()
+
+	attack_ai(mob/user)
+		return
+
+	emp_act(severity)
+		if(stat & (BROKEN|NOPOWER))
+			return
+		if(charging)
+			charging.emp_act(severity)
+		..(severity)
+
+
+	process()
+		//world << "ccpt [charging] [stat]"
+		if(!charging || (stat & (BROKEN|NOPOWER)) || !anchored)
+			return
+		if(use_power)
+			var/power_used = 100000	//for 200 units of charge. Yes, thats right, 100 kW. Is something wrong with CELLRATE?
+			power_used = charging.give(power_used*CELLRATE*efficiency)
+			use_power(power_used)		//this used to use CELLRATE, but CELLRATE is fucking awful. feel free to fix this properly!
+		else
+			charging.give(175)	//inefficiency.
+
+		updateicon()

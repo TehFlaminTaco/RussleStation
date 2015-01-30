@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Admin Verbs Changelog</title>
+  <link rel="stylesheet" type="text/css" href="changelog.css">
+  <script type='text/javascript'>
+  
+	function changeText(tagID, newText, linkTagID){
+		var tag = document.getElementById(tagID);
+		tag.innerHTML = newText;
+		var linkTag = document.getElementById(linkTagID);
+		linkTag.removeAttribute("href");
+		linkTag.removeAttribute("onclick");
+	}
+
+  </script>  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+<!-- 
+Header Section 
+-->
+<table align='center' width='650'><tr><td>
+<table align='center' class="top">
+	<tr>
+		<td valign='top'>
+			<div align='center'><font size='3'><b>BestRP - Admin Verbs/Coding Changelog</font></div>
+
+			</td>
+	</tr>
+</table>
+
+<!-- <font size='4' color='red'><b>Visit the bleeding-edge test server at <a href="byond://tekkit.fallemmc.com:8000">byond://tekkit.fallemmc.com:8000</a></b></font>--!>
+
+<!-- 
+Changelog Section 
+-->
+
+<!-- NOTE TO UPDATERS!! Please only list things which are important to players. 
+Stuff which is in development and not yet visible to players or just code related 
+(ie. code improvements for expandability, etc.) should not be listed here. They 
+should be listed in the changelog upon commit though. Thanks. -->
+
+<!-- Notes Section:
+
+-->
+
+<!-- Dev Changelog Section:
+
+-->
+<div class="commit sansserif">
+	<h2 class="date">March 7th, 2014</h2>
+	<h3 class="author">Yashaldie updates:</h3>
+	<ul class="changes bgimages16">
+		<li class="rscadd">Added a toggle attacks verb(WIP) this verb can only be used by those with +SERVER.it will disable most attacks and mouseclick events.if something is missing let me know.</li>
+</div>		
+<div class="commit sansserif">
+	<h2 class="date">February 26, 2014</h2>
+	<h3 class="author">Yashaldie updates:</h3>
+	<ul class="changes bgimages16">
+		<li class="bugfix">All admins and Mods now get access to VIP verbs no admin or mod should be in the vips list!!!(causes bugs)</li>
+		<li class="rscadd">Added a Namepick verb(same as the one vips had) for those mods/admin who can't change Variables to be able to change their name once per round.</li>
+		<li class="rscadd">We know you like attacklogs so we added more attacklogs in your attacklogs!(thank you baystation for more log spam!)
+		<li class="rscadd">Added in griefchecks for when someone breaks down a wall(or dismantles it)<br>check the floortile where wall was located for the greifcheck variable.<br>if the player just takes off the metal from the wall don't check the girder variables.<br>Just check the floor where the wall should be</li>
+		<li class="rscadd">With the help of jamie we added a move ERT shuttle to the secrets window</li>
+</div>
+<div class="commit sansserif">
+	<h2 class="date">February 24, 2014</h2>
+	<h3 class="author">Yashaldie updates:</h3>
+	<ul class="changes bgimages16">
+		<li class="rscadd"><b>New Rejuvinate funtions:</b><br>
+		<br>Added the ability to rejuv borgs with the rejuviante verb.
+		<br>When Players are rejuved any reagents in them are now deleted.
+		<br>Also removes hallucinations now.
+		<br>Used on a Dead AI will now revert its icon state from Blue screen to previous living icon.
+		<br>Used on Simple Animals will now heal and bring them back to life.
+		<br>Will cure diseases now.</li>
+		
+</div>
+<div class="commit sansserif">
+	<h2 class="date">February 17, 2014</h2>
+	<h3 class="author">Yashaldie updates:</h3>
+	<ul class="changes bgimages16">
+		<li class="bugfix">Moved Hide/Show Admin Chat,Mod Chat,Vip Chat,Prayers,RadioChatter,Attacklogs and Debug log toggles into a new save variable.<br>
+			Also move them to a new tab called "Prefs A/M"<br><br>If you run into any prefs errors goto View Variables of player -> Client -> Preferences -> toggles - change number to 1023(new default)<br>
+			and make sure their Atoggles are set to 95</li>
+</div>
+<div class="commit sansserif">
+	<h2 class="date">February 17, 2014</h2>
+	<h3 class="author">Yashaldie updates:</h3>
+	<ul class="changes bgimages16">
+		<li class="tweak">Woot Woot added an Admin Verb/coding Changelog!</li>
+		<li class="tweak">This will be used to show Verb/coding changes that pertain to Admins/Mods!</li>
+		<li class="rscadd">Added a new verb "Admin Changelog" under the Admin tab.<br>If you found this then you found the verb!</li>
+		<li class="bugfix">Fixed the "Grant Full Access" verb when used on someone using a wallet</li>
+		<li class="rscadd">Baystation added a new "Hide Debug verbs" verb</li>
+		<li class="rscadd">Baystation added a new ZAS connection check verb to debug verbs</li>
+		
+</div>
+
+
+
+<!-- 
+Credits Section 
+-->
