@@ -1,9 +1,8 @@
 // Pretty much everything here is stolen from the dna scanner FYI
 var/vrpads = list()
-
+var/VRPadItems = list()
 
 /obj/machinery/vrpod
-	var/mob/living/carbon/occupant
 	var/turfOn
 	var/locked
 	var/mob/living/carbon/vrbody
@@ -13,10 +12,12 @@ var/vrpads = list()
 	var/savedkey
 	var/backupMind
 	var/foundMind
+	var/storedName
+	var/mob/living/carbon/human/occupant
 	name = "VR Pod"
 	desc = "A very advanced machine. It appears to be pulsating."
 	icon = 'icons/obj/Cryogenic2.dmi'
-	icon_state = "vrpod_0"
+	icon_state = "vrpod_00"
 	density = 1
 	anchored = 1
 
@@ -47,6 +48,8 @@ var/vrpads = list()
 	if (usr.stat != 0)
 		return
 	src.go_out()
+	src.visible_message("\red \icon[src] GAME SESSION HALTED.", 2)
+	playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
 	add_fingerprint(usr)
 	return
 
@@ -68,7 +71,7 @@ var/vrpads = list()
 	usr.client.eye = src
 	usr.loc = src
 	src.occupant = usr
-	src.icon_state = "vrpod_1"
+	src.icon_state = "vrpod_1[src.emagged]"
 	for(var/obj/O in src)
 		//O = null
 		del(O)
@@ -129,8 +132,13 @@ var/vrpads = list()
 	src.lastoccupant = src.occupant
 	if (src.foundMind==0)
 		src.occupant << "\red<b>As the pod bursts open you realise you can't remember much of anything.</b>"
+	if(src.storedName)
+		src.occupant.real_name = src.storedName
+		if(src.occupant.dna)
+			src.occupant.dna.real_name = src.storedName
+		src.storedName = null
 	src.occupant = null
-	src.icon_state = "vrpod_0"
+	src.icon_state = "vrpod_0[src.emagged]"
 	return
 
 /obj/machinery/vrpod/proc/go_in()
@@ -203,7 +211,7 @@ var/vrpads = list()
 			M.client.eye = src
 		M.loc = src
 		src.occupant = M
-		src.icon_state = "vrpod_1"
+		src.icon_state = "vrpod_1[src.emagged]"
 		src.go_in()
 		for(var/obj/O in src)
 			O.loc = src.loc
@@ -212,29 +220,24 @@ var/vrpads = list()
 		//G = null
 		del(G)
 		return
-	if(istype(D, /obj/item/borg/grab))
-		var/obj/item/borg/grab/BG = D
-		if(!ismob(BG.attack))
-			return
-		if (BG.attack.abiotic())
-			user << "\blue <B>Subject cannot have abiotic items on.</B>"
-			return
-		var/mob/M = BG.attack
-		if (M.client)
-			M.client.perspective = EYE_PERSPECTIVE
-			M.client.eye = src
-		M.loc = src
-		src.occupant = M
-		src.icon_state = "vrpod_1"
-		src.go_in()
-		for(var/obj/O in src)
-			O.loc = src.loc
-			//Foreach goto(154)
-		//G = null
-		BG.attack = null
-		usr.stop_pulling()
-		BG.process()
+	if(istype(D, /obj/item/weapon/wrench))
+		if(src.anchored)
+			user << "You unwrench the [src] from the floor"
+		else
+			user << "You wrench the [src] to the floor"
+		src.anchored = 1-src.anchored
+		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 		return
+	if(istype(D, /obj/item/weapon/card/emag))
+		if(!src.emagged)
+			if (src.occupant)
+				src.icon_state = "vrpod_11"
+			else
+				src.icon_state = "vrpod_01"
+			src.emagged = 1
+			user << "You fry the [src]'s safties!"
+		return
+
 	return
 
 /obj/machinery/vrpod/process()
@@ -244,8 +247,6 @@ var/vrpads = list()
 			src.go_out()
 			src.visible_message("\red \icon[src] GAME SESSION HALTED.", 2)
 			playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
-			return
-		if (src.vrbody.aghost==1) // So that admins can Aghost all they like and not be popped out.
 			return
 		if (!(src.vrbody.ckey&&src.vrbody.client)) // No body? No problem.
 			src.visible_message("\red \icon[src] ERROR; CONNECTION TO VR BODY SEVERED.", 2)
@@ -262,6 +263,9 @@ var/vrpads = list()
 			src.go_out()
 			src.visible_message("\red \icon[src] GAME SESSION HALTED.", 2)
 			playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
+			return
+		if (stat & NOPOWER)
+			src.go_out()
 			return
 
 
@@ -363,8 +367,135 @@ var/vrpads = list()
 		var/confirm = alert("Do you wish to leave the VR Realm?", "Confirm Log Out", "Yes", "No")
 
 		if(confirm=="Yes")
-			if (!(H.species && H.species.flags & NO_PAIN))
-				H << "\red <B>You feel a jolt of pain as you touch the device.</B>"
-			else
-				H << "\blue You feel your form be destroyed."
-			H.apply_damage(9001, BRUTE, "chest") // BAMN, dead
+			H << "\red <B>You feel a jolt of pain as you touch the device.</B>"
+			H.gib()
+
+/obj/machinery/vrpad/process()
+	..()
+
+/obj/machinery/computer/vr
+	name = "VRPod Control Console"
+	desc = "Used to manipulate and manage the VR world."
+	icon_state = "vrconsole"
+	use_power = 1
+	idle_power_usage = 250
+	active_power_usage = 500
+	//circuit = "/obj/item/weapon/circuitboard/crew"
+	var/list/tracked = list(  )
+
+
+/obj/machinery/computer/crew/New()
+	..()
+
+
+/obj/machinery/computer/vr/attack_ai(mob/user)
+	attack_hand(user)
+	interact(user)
+
+
+/obj/machinery/computer/vr/attack_hand(mob/user)
+	add_fingerprint(user)
+	if(stat & (BROKEN|NOPOWER))
+		return
+	interact(user)
+
+
+/obj/machinery/computer/vr/update_icon()
+
+	if(stat & BROKEN)
+		icon_state = "vrconsole_broken"
+	else
+		if(stat & NOPOWER)
+			src.icon_state = "vrconsole_unpowered"
+			stat |= NOPOWER
+		else
+			icon_state = initial(icon_state)
+			stat &= ~NOPOWER
+
+
+/obj/machinery/computer/vr/proc/regenerateVR()
+	..()
+
+/obj/machinery/computer/vr/Topic(href, href_list)
+	if(..()) return
+	if( href_list["close"] )
+		usr << browse(null, "window=vrpodcomp")
+		usr.unset_machine()
+		return
+	if(href_list["update"])
+		src.updateDialog()
+		return
+	if(href_list["resetvr"])
+		src.regenerateVR()
+		return
+	if(href_list["eject"])
+		if(href_list["podx"]&&href_list["pody"]&&href_list["podz"])
+			for(var/obj/machinery/vrpod/pod in world)
+				if(pod.x==text2num(href_list["podx"])&&pod.y==text2num(href_list["pody"])&&pod.z==text2num(href_list["podz"]))
+					pod.go_out()
+					pod.visible_message("\red \icon[pod] GAME SESSION HALTED.", 2)
+					playsound(pod.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
+		return
+	if(href_list["heal"])
+		if(href_list["podx"]&&href_list["pody"]&&href_list["podz"])
+			for(var/obj/machinery/vrpod/pod in world)
+				if(pod.x==text2num(href_list["podx"])&&pod.y==text2num(href_list["pody"])&&pod.z==text2num(href_list["podz"]))
+					if(pod.vrbody)
+						var/mob/living/carbon/human/H = pod.vrbody
+						H.rejuvenate()
+						H << "\blue You suddenly feel fresh, and ready for anything!"
+		return
+	if(href_list["paralyze"])
+		if(href_list["podx"]&&href_list["pody"]&&href_list["podz"])
+			for(var/obj/machinery/vrpod/pod in world)
+				if(pod.x==text2num(href_list["podx"])&&pod.y==text2num(href_list["pody"])&&pod.z==text2num(href_list["podz"]))
+					if(pod.vrbody)
+						var/mob/living/carbon/human/H = pod.vrbody
+						H.Paralyse(30)
+						H << "\red Your entire body locks up, You can't move!"
+		return
+
+
+
+/obj/machinery/computer/vr/interact(mob/user)
+	if(stat & (BROKEN|NOPOWER))
+		return
+	if(!istype(user, /mob/living/silicon) && get_dist(src, user) > 1)
+		user.unset_machine()
+		user << browse(null, "window=vrpodcomp")
+		return
+	user.set_machine(src)
+	var/t = "<TT><B>VR Pod Console</B><HR>" // A LOT of this is pinched from the Crew Monitoring Console.
+	t += "<BR><A href='?src=\ref[src];update=1'>Refresh</A> "
+	t += "<A href='?src=\ref[src];close=1'>Close</A><BR>"
+	t += "<table><tr><td width='30%'>Name</td><td width='10%'>Vitals</td><td width='30%'>Position</td><td width = '30%'>Functions</td></tr>"
+	for(var/obj/machinery/vrpod/pod in world)
+		var/PodName = pod.name
+		if(pod.emagged)
+			PodName = "P0#3RR0%#%"
+		if (pod.vrbody)
+			var/mob/living/carbon/human/H = pod.vrbody
+			var/dam1 = round(H.getOxyLoss(),1)
+			var/dam2 = round(H.getToxLoss(),1)
+			var/dam3 = round(H.getFireLoss(),1)
+			var/dam4 = round(H.getBruteLoss(),1)
+
+			var/damage_report = "(<font color='blue'>[dam1]</font>/<font color='green'>[dam2]</font>/<font color='orange'>[dam3]</font>/<font color='red'>[dam4]</font>)"
+			var/area/player_area = get_area(H)
+			t += "<tr><td width='20%'>([PodName]) [H.name]</td>"
+			t += "<td width='10%'>[damage_report]</td><td width='30%'>[player_area.name] ([H.x], [H.y])</td>"
+			t += "<td width='20%'>"
+			t += "<A href='?src=\ref[src];eject=1;podx=[pod.x];pody=[pod.y];podz=[pod.z]'>\[EJECT\]</A> "
+			t += "<A href='?src=\ref[src];heal=1;podx=[pod.x];pody=[pod.y];podz=[pod.z]'>\[HEAL\]</A> "
+			if(pod.emagged)
+				t += "<A href='?src=\ref[src];paralyze=1;podx=[pod.x];pody=[pod.y];podz=[pod.z]'>\red \[PARALYZE\]\black </A> "
+			t += "</td></tr>"
+		else
+			t += "<tr><td width='20%'>([PodName]) EMPTYPOD</td><td width='10%'>N/A</td><td width='30%'>N/A</td><td width='30%'>N/A</td></tr>"
+	t += "</table>"
+	t += "<A href='?src=\ref[src];resetvr=1'>RESET VR WORLD</A><BR>"
+	t += "</FONT></PRE></TT>"
+	user << browse(t, "window=vrpodcomp;size=800x400")
+	onclose(user, "vrpodcomp")
+
+
