@@ -192,6 +192,8 @@ var/VRPadItems = list()
 
 	VRbody.equip_to_slot_or_del(new /obj/item/clothing/under/color/grey(VRbody), slot_w_uniform)
 	VRbody.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(VRbody), slot_shoes)
+	VRbody.underwear = src.occupant.underwear
+	VRbody.undershirt = src.occupant.undershirt
 	return
 
 /obj/machinery/vrpod/attackby(obj/item/D as obj, user as mob)
