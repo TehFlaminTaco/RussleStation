@@ -328,7 +328,9 @@ var/list/admin_verbs_dev = list(
 	/client/proc/admin_ghost,			/*allows us to ghost/reenter body at will*/
 	/client/proc/deadmin_self,
 	/client/proc/cmd_vip_say,
-	/client/proc/cmd_dev_say
+	/client/proc/cmd_dev_say,
+	/datum/admins/proc/toggledevsay,
+	/client/proc/dsay
 )
 
 /client/proc/add_admin_verbs()
