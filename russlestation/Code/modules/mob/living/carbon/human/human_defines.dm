@@ -68,3 +68,5 @@
 
 	var/mob/remoteview_target = null
 	var/hand_blood_color
+
+	var/isVirtual = 0

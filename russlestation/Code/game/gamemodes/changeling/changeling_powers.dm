@@ -75,6 +75,11 @@
 	var/datum/changeling/changeling = changeling_power(0,0,100)
 	if(!changeling)	return
 
+	var/mob/living/carbon/human/H = src
+	if(H.isVirtual)
+		src << "<span class='warnin'>There is no point in absorbing someone, we are in VR.</span>"
+		return
+
 	var/obj/item/weapon/grab/G = src.get_active_hand()
 	if(!istype(G))
 		src << "<span class='warning'>We must be grabbing a creature in our active hand to absorb them.</span>"

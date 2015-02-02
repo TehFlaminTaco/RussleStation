@@ -63,6 +63,9 @@ var/VRPadItems = list()
 	if (src.occupant)
 		usr << "\blue <B>The pod is already occupied!</B>"
 		return
+	if (!istype(usr, /mob/living/carbon/human))
+		usr << "<B>\red The pod rejects you!</B>"
+		return
 	if (usr.abiotic())
 		usr << "\blue <B>Subject cannot have abiotic items on.</B>"
 		return
@@ -194,13 +197,14 @@ var/VRPadItems = list()
 	VRbody.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(VRbody), slot_shoes)
 	VRbody.underwear = src.occupant.underwear
 	VRbody.undershirt = src.occupant.undershirt
+	VRbody.isVirtual = 1
 	return
 
 /obj/machinery/vrpod/attackby(obj/item/D as obj, user as mob)
-	if (src.occupant)
-		user << "\blue <B>The pod is already occupied!</B>"
-		return
 	if(istype(D, /obj/item/weapon/grab))
+		if (src.occupant)
+			user << "\blue <B>The pod is already occupied!</B>"
+			return
 		var/obj/item/weapon/grab/G = D
 		if(!ismob(G.affecting))
 			return
