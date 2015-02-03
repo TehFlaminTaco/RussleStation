@@ -10,8 +10,6 @@ var/VRPadItems = list()
 	var/zPlane = 2
 	var/mob/living/carbon/lastoccupant
 	var/savedkey
-	var/backupMind
-	var/foundMind
 	var/storedName
 	var/mob/living/carbon/human/occupant
 	name = "VR Pod"
@@ -86,7 +84,6 @@ var/VRPadItems = list()
 
 
 /obj/machinery/vrpod/proc/go_out()
-	src.foundMind = 0
 	if ((!( src.occupant ) || src.locked))
 		return
 	for(var/obj/O in src)
@@ -95,9 +92,6 @@ var/VRPadItems = list()
 	if (src.vrbody)
 		if (src.vrbody.ckey)
 			src.occupant.ckey = src.vrbody.ckey
-			if (src.vrbody.mind)
-				src.vrbody.mind.transfer_to(src.occupant)
-				src.foundMind = 1
 			//Drop all items where they stand. So that people don't eat the valuables.
 			for(var/obj/item/W in src.vrbody)
 				src.vrbody.drop_from_inventory(W)
@@ -112,29 +106,13 @@ var/VRPadItems = list()
 					del(W)
 		del(src.vrbody)
 	else
-		src.occupant.ckey = src.savedkey // Done outside the loop JUST incase we can't find a guy.
-		for(var/mob/M in player_list)
-			if (!M.client)
-				continue
-			if (M.ckey == src.savedkey)
-				M.mind.transfer_to(src.occupant)
-				src.foundMind = 1
-				break
-			// How to save a life!
-	if (src.foundMind==0)
-		if(src.backupMind)
-			if(istype(src.backupMind, /datum/mind))
-				var/datum/mind/M = src.backupMind
-				M.transfer_to(src.occupant)
-				src.foundMind = 1
+		src.occupant.ckey = src.savedkey
 	if (src.occupant.client)
 		src.occupant.client.eye = src.occupant.client.mob
 		src.occupant.client.perspective = MOB_PERSPECTIVE
 	src.occupant.loc = src.loc
 	src.occupant.suiciding = 0 // IT COULD HAPPEN!
 	src.lastoccupant = src.occupant
-	if (src.foundMind==0)
-		src.occupant << "\red<b>As the pod bursts open you realise you can't remember much of anything.</b>"
 	if(src.storedName)
 		src.occupant.real_name = src.storedName
 		if(src.occupant.dna)
@@ -172,8 +150,6 @@ var/VRPadItems = list()
 	VRbody.updatehealth()
 
 	VRbody.ckey = src.occupant.ckey
-	src.backupMind = src.occupant.mind
-	src.occupant.mind.transfer_to(VRbody)
 	src.savedkey = VRbody.ckey
 	VRbody << "<span class='notice'><i>Your body feels momenterily numb as you awake in a new world.</i></span>"
 
