@@ -12,6 +12,71 @@
 	attack_verb = list("called", "rang")
 	hitsound = 'sound/weapons/ring.ogg'
 
+/obj/item/weapon/eswordmk2
+ name = "Energy Sword"
+ desc = "Lazors with smite!"
+ icon_state = "sword0"
+ w_class = 2.0
+ force = 3
+ throw_speed = 10
+ throwforce = 4
+ throw_range = 10
+ attack_verb = list("stabbed", "slashed", "sliced", "cut")
+ hitsound = 'sound/weapons/blade1.ogg'
+ flags = FPRINT | TABLEPASS | NOSHIELD
+ var/active = 0
+
+/obj/item/weapon/eswordmk2/blue
+ New()
+  item_color = "blue"
+
+/obj/item/weapon/eswordmk2/purple
+ New()
+  item_color = "purple"
+
+/obj/item/weapon/eswordmk2/green
+	New()
+		item_color = "green"
+
+/obj/item/weapon/eswordmk2/red
+	New()
+		item_color = "red"
+
+/obj/item/weapon/eswordmk2/IsShield()
+	if(active)
+		return 1
+	return 0
+
+/obj/item/weapon/eswordmk2/attack(target as mob, mob/user as mob)
+	..()
+
+/obj/item/weapon/eswordmk2/New()
+	item_color = pick("red","blue","green","purple")
+
+/obj/item/weapon/eswordmk2/attack_self(mob/living/user as mob)
+	active = !active
+	if (active)
+		force = 25
+		sharp = 30
+		icon_state = "sword[item_color]"
+		w_class = 4
+		throwforce = 15
+  throw_speed = 5
+  throw_range = 10
+		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
+		user << "\blue [src] is now active."
+	else
+		force = 3
+		icon_state = "sword0"
+		w_class = 2
+		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
+		user << "\blue [src] can now be concealed."
+
+	if(istype(user,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = user
+		H.update_inv_l_hand()
+		H.update_inv_r_hand()
+
 /obj/item/weapon/rsp
 	name = "\improper Rapid-Seed-Producer (RSP)"
 	desc = "A device used to rapidly deploy seeds."
