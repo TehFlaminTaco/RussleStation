@@ -8,50 +8,46 @@
 	throwforce = 2.0
 	throw_speed = 1
 	throw_range = 4
+	item_color = "none"
 	w_class = 2
 	attack_verb = list("called", "rang")
 	hitsound = 'sound/weapons/ring.ogg'
 
 /obj/item/weapon/eswordmk2
- name = "Energy Sword"
- desc = "Lazors with smite!"
- icon_state = "sword0"
- w_class = 2.0
- force = 3
- throw_speed = 10
- throwforce = 4
- throw_range = 10
- attack_verb = list("stabbed", "slashed", "sliced", "cut")
- hitsound = 'sound/weapons/blade1.ogg'
- flags = FPRINT | TABLEPASS | NOSHIELD
- var/active = 0
+	name = "Energy Sword"
+	desc = "Lazors with smite!"
+	icon_state = "sword0"
+	w_class = 2.0
+	force = 3
+	throw_speed = 10
+	throwforce = 4
+	throw_range = 10
+	attack_verb = list("stabbed", "slashed", "sliced", "cut")
+	item_color = "none"
+	hitsound = 'sound/weapons/blade1.ogg'
+	flags = FPRINT | TABLEPASS | NOSHIELD
+	var/active = 0
 
 /obj/item/weapon/eswordmk2/blue
- New()
-  item_color = "blue"
+	item_color = "blue"
 
 /obj/item/weapon/eswordmk2/purple
- New()
-  item_color = "purple"
+	item_color = "purple"
 
 /obj/item/weapon/eswordmk2/green
-	New()
-		item_color = "green"
+	item_color = "green"
 
 /obj/item/weapon/eswordmk2/red
-	New()
-		item_color = "red"
+	item_color = "red"
 
 /obj/item/weapon/eswordmk2/IsShield()
 	if(active)
 		return 1
 	return 0
 
-/obj/item/weapon/eswordmk2/attack(target as mob, mob/user as mob)
-	..()
-
 /obj/item/weapon/eswordmk2/New()
-	item_color = pick("red","blue","green","purple")
+	if (item_color=="none")
+		item_color = pick("red","blue","green","purple")
 
 /obj/item/weapon/eswordmk2/attack_self(mob/living/user as mob)
 	active = !active
@@ -61,8 +57,8 @@
 		icon_state = "sword[item_color]"
 		w_class = 4
 		throwforce = 15
-  throw_speed = 5
-  throw_range = 10
+		throw_speed = 5
+		throw_range = 10
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
 		user << "\blue [src] is now active."
 	else
