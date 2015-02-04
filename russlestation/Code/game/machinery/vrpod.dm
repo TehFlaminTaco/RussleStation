@@ -104,6 +104,8 @@ var/VRPadItems = list()
 					del(W)
 				if (istype(W, /obj/item/clothing/shoes))
 					del(W)
+		else
+			src.occupant.ckey = src.savedkey
 		del(src.vrbody)
 	else
 		src.occupant.ckey = src.savedkey
