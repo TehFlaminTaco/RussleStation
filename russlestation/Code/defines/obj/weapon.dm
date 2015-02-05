@@ -16,7 +16,8 @@
 /obj/item/weapon/eswordmk2
 	name = "Energy Sword"
 	desc = "Lazors with smite!"
-	icon_state = "sword0"
+	icon_state = "eswordmk20"
+	item_state = "sword0"
 	w_class = 2.0
 	force = 3
 	throw_speed = 10
@@ -54,7 +55,8 @@
 	if (active)
 		force = 25
 		sharp = 30
-		icon_state = "sword[item_color]"
+		icon_state = "eswordmk2[item_color]"
+		item_state = "sword[item_color]"
 		w_class = 4
 		throwforce = 15
 		throw_speed = 5
@@ -64,6 +66,7 @@
 	else
 		force = 3
 		icon_state = "sword0"
+		item_state = "sword0"
 		w_class = 2
 		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
 		user << "\blue [src] can now be concealed."
