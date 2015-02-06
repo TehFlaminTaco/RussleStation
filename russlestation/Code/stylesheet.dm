@@ -76,6 +76,7 @@ h1.alert, h2.alert		{color: #000000;}
 .rough					{font-family: "Trebuchet MS", cursive, sans-serif;}
 .say_quote				{font-family: Georgia, Verdana, sans-serif;}
 .machine				{font-family: Georgia, Verdana, sans-serif;		font-weight: bold;}
+.vulpix					{color: #FF6633;}
 
 .interface				{color: #330033;}
 </style>"}

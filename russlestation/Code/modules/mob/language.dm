@@ -30,6 +30,15 @@
 	whisp = "mews softly"
 	flags = RESTRICTED
 
+/datum/language/vulpix
+	name = "Vulpix"
+	desc = "A language."
+	speech_verb = "yips"
+	colour = "vulpix"
+	key = "L"
+	whisp = "yips softly"
+	flags = RESTRICTED
+
 /datum/language/Aviskree
 	name = "Aviachirp"
 	desc = "An expressive language is very beautiful execpt when you want to sleep."

@@ -214,6 +214,31 @@
 
 	flesh_color = "#AFA59E"
 
+/datum/species/vulpan
+	name = "Vulpan"
+	icobase = 'icons/mob/human_races/r_vulpan.dmi'
+	deform = 'icons/mob/human_races/r_def_vulpan.dmi'
+	language = "Vulpix"
+	tail = "vulptail"
+	attack_verb = "scratch"
+	punch_damage = 5
+	darksight = 8
+	digitigrade = 1
+
+	cold_level_1 = 260 //Default 260
+	cold_level_2 = 200 //Default 200
+	cold_level_3 = 120 //Default 120
+
+	heat_level_1 = 360 //Default 360
+	heat_level_2 = 400 //Default 400
+	heat_level_3 = 1000 //Default 1000
+
+	primitive = /mob/living/carbon/monkey/tajara
+
+	flags = IS_WHITELISTED | HAS_LIPS | HAS_UNDERWEAR | HAS_TAIL
+
+	flesh_color = "#FF6633"
+
 /datum/species/avisaran
 	name = "Avisaran"
 	icobase = 'icons/mob/human_races/r_Avisaran.dmi'
