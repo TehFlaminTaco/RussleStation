@@ -35,7 +35,7 @@
 	desc = "A language."
 	speech_verb = "yips"
 	colour = "vulpix"
-	key = "H"
+	key = "L"
 	whisp = "yips softly"
 	flags = RESTRICTED
 
