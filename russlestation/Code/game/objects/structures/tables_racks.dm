@@ -18,6 +18,7 @@
 	density = 1
 	anchored = 1.0
 	layer = 2.9
+	climbable = 1
 	throwpass = 1	//You can throw objects over this, despite it's density.")
 	var/parts = /obj/item/weapon/table_parts
 	var/flipped = 0
@@ -441,16 +442,6 @@
 			return 0
 	return T.straight_table_check(direction)
 
-/obj/structure/table/verb/can_touch(var/mob/user)
-	if (!user)
-		return 0
-	if (user.stat)	//zombie goasts go away
-		return 0
-	if (issilicon(user))
-		user << "<span class='notice'>You need hands for this.</span>"
-		return 0
-	return 1
-
 /obj/structure/table/verb/do_flip()
 	set name = "Flip table"
 	set desc = "Flips a non-reinforced table"
@@ -549,6 +540,7 @@
 	icon_state = "wood_table"
 	parts = /obj/item/weapon/table_parts/wood
 	health = 50
+	climbable = 1
 
 /obj/structure/table/cardtable
 	name = "card table"
@@ -556,6 +548,7 @@
 	icon_state = "card_table"
 	parts = /obj/item/weapon/table_parts/wood
 	health = 50
+	climbable = 1
 /*
  * Reinforced tables
  */
@@ -566,6 +559,7 @@
 	health = 200
 	var/status = 2
 	parts = /obj/item/weapon/table_parts/reinforced
+	climbable = 1
 
 /obj/structure/table/reinforced/flip(var/direction)
 	if (status == 2)
