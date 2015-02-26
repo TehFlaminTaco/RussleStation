@@ -8,12 +8,15 @@
 	allowed = list(/obj/item/device/flashlight)
 	var/brightness_on = 4 //luminosity when on
 	var/on = 0
+	var/hasFlashlight = 1
 	item_color = "engineering" //Determines used sprites: rig[on]-[color] and rig[on]-[color]2 (lying down sprite)
 	icon_action_button = "action_hardhat"
 	heat_protection = HEAD
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 
 	attack_self(mob/user)
+		if (!hasFlashlight)
+			return
 		if(!isturf(user.loc))
 			user << "You cannot turn the light on while in this [user.loc]" //To prevent some lighting anomalities.
 			return

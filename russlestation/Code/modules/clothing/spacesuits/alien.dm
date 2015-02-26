@@ -300,3 +300,21 @@
 	item_state = "rig-diona"
 	item_color = "rig-diona"
 	species_restricted = list("Diona")
+
+// Fox Rigs
+/obj/item/clothing/head/helmet/space/rig/vulpan
+	name = "Vulpan helmet"
+	desc = "A heavy metal looking helmet, most likely air-tight, doesn't have a flashlight."
+	icon_state = "rig-vulpan"
+	item_state = "rig-vulpan"
+	item_color = "rig-vulpan"
+	species_restricted = list("Vulpan")
+	hasFlashlight = 0
+
+/obj/item/clothing/suit/space/rig/vulpan
+	name = "Vulpan hardsuit"
+	desc = "A very thick suit of plate armor, connected by a webbing of sorts. Seems space proof enough."
+	icon_state = "rig-vulpan"
+	item_state = "riv-vulpan"
+	item_color = "rig-vulpan"
+	species_restricted = list("Vulpan")
