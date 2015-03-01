@@ -540,7 +540,6 @@
 	icon_state = "wood_table"
 	parts = /obj/item/weapon/table_parts/wood
 	health = 50
-	climbable = 1
 
 /obj/structure/table/cardtable
 	name = "card table"
@@ -548,7 +547,6 @@
 	icon_state = "card_table"
 	parts = /obj/item/weapon/table_parts/wood
 	health = 50
-	climbable = 1
 /*
  * Reinforced tables
  */
@@ -559,7 +557,6 @@
 	health = 200
 	var/status = 2
 	parts = /obj/item/weapon/table_parts/reinforced
-	climbable = 1
 
 /obj/structure/table/reinforced/flip(var/direction)
 	if (status == 2)
