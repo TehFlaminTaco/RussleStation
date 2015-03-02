@@ -1373,6 +1373,7 @@
 #include "Code\modules\surgery\braincore.dm"
 #include "Code\modules\surgery\eye.dm"
 #include "Code\modules\surgery\face.dm"
+#include "Code\modules\surgery\genderreassignment.dm"
 #include "Code\modules\surgery\generic.dm"
 #include "Code\modules\surgery\headreattach.dm"
 #include "Code\modules\surgery\implant.dm"

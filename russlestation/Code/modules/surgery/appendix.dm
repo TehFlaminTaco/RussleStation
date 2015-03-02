@@ -28,7 +28,8 @@
 	max_duration = 90
 
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		return ..() && target.op_stage.appendix == 0
+		if(target.op_stage.genderreassignment != 1)
+			return ..() && target.op_stage.appendix == 0
 
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		user.visible_message("[user] starts to separate [target]'s appendix from the abdominal wall with \the [tool].", \
