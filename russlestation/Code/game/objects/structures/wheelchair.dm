@@ -1,7 +1,7 @@
 /obj/structure/stool/bed/chair/wheelchair
-	name = "Wheelchair"
+	name = "wheelchair"
 	icon = 'icons/obj/wheelchair.dmi'
-	desc = "A chair with wheels on it"
+	desc = "A chair with wheels on it."
 	icon_state = "wheelchair"
 	anchored = 1
 	density = 0
@@ -40,9 +40,9 @@
 	if(wheellock >= 1)
 		wheellock = 0
 		anchored = 0
-		usr << "<span class='notice'>You unlock the wheels</span>"
+		usr << "<span class='notice'>You unlock the wheels.</span>"
 	else
-		usr << "<span class='notice'>You lock the wheels</span>"
+		usr << "<span class='notice'>You lock the wheels.</span>"
 		wheellock = 1
 		anchored = 1
 
@@ -63,12 +63,12 @@
 	if(attachedtank)
 		if(tanktoggle >= 1)
 			tanktoggle = 0
-			usr << "<span class='notice'>You turn off the tank</span>"
+			usr << "<span class='notice'>You turn off the tank.</span>"
 		else
 			usr << "<span class='notice'>You turn on the tank</span>"
 			tanktoggle = 1
 	else
-		usr << "<span class='notice'>You need a tank attached to the wheelchair to use this</span>"
+		usr << "<span class='notice'>You need a tank attached to the wheelchair to use this.</span>"
 
 
 
@@ -393,9 +393,9 @@
 		if(!ishuman(usr))	return
 		if(buckled_mob)	return 0
 		removetank()
-		usr << "it will take a few seconds to folded the [src]"
+		usr << "You start collapsing the [src]."
 		sleep 15
-		visible_message("[usr] collapses \the [src.name]")
+		visible_message("[usr] collapses \the [src.name].")
 		new/obj/item/wheelchair(get_turf(src))
 		spawn(0)
 			del(src)
@@ -410,7 +410,7 @@
 	slowdown = 1
 
 	attack_self(mob/user)
-		usr << "it will take a few seconds to unfolded the [src]"
+		usr << "You start unfolding the [src]."
 		sleep 15
 		var/obj/structure/stool/bed/chair/wheelchair/R = new /obj/structure/stool/bed/chair/wheelchair(user.loc)
 		R.add_fingerprint(user)
