@@ -39,13 +39,19 @@
 	name = "spoon"
 	desc = "SPOON!"
 	icon_state = "spoon"
-	attack_verb = list("attacked", "poked")
+	attack_verb = list("pestered", "poked", "Ginosaji'd", "smacked")
+	force = 0.2
+	throwforce = 0.2
+	hitsound = 'sound/weapons/empty.ogg'
 
 /obj/item/weapon/kitchen/utensil/pspoon
 	name = "plastic spoon"
 	desc = "Super dull action!"
 	icon_state = "pspoon"
-	attack_verb = list("attacked", "poked")
+	attack_verb = list("pestered", "poked", "Ginosaji'd", "smacked")
+	force = 0.1
+	throwforce = 0.1
+	hitsound = 'sound/weapons/empty.ogg'
 
 /*
  * Forks
@@ -137,8 +143,8 @@
 	name = "plastic knife"
 	desc = "The bluntest of blades."
 	icon_state = "pknife"
-	force = 10.0
-	throwforce = 10.0
+	force = 2.5
+	throwforce = 2.5
 
 /obj/item/weapon/kitchen/utensil/knife/attack(target as mob, mob/living/user as mob)
 	if(no_attack==1)return
