@@ -350,11 +350,6 @@ var/list/admin_verbs_dev = list(
 		if(holder.rights & R_SPAWN)				verbs += admin_verbs_spawn
 		if(holder.rights & R_MOD)				verbs += admin_verbs_mod
 		if(holder.rights & R_DEV)				verbs += admin_verbs_dev
-		if(key == "Purlek")						verbs += /client/proc/purlek_respawn
-		if(key == "Wolfiri")					verbs += /client/proc/wolfiri_respawn
-		if(key == "Purlek")						verbs += /client/proc/purlek_jump
-		if(key == "Wolfiri")					verbs += /client/proc/purlek_jump
-
 
 /client/proc/remove_admin_verbs()
 	verbs.Remove(

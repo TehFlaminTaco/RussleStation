@@ -594,11 +594,6 @@ var/list/ghostteleportlocs = list()
 	icon_state = "Hideout"
 	requires_power = 0
 
-/area/Purlek/LeRoom
-	name ="\improper Le Room"
-	icon_state = "start"
-	requires_power = 0
-
 /area/vox_station/transit
 	name = "\improper hyperspace"
 	icon_state = "shuttle"
