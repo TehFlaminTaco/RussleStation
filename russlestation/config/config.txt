@@ -185,7 +185,7 @@ GUEST_BAN
 # USEWHITELIST
 
 ## set a server location for world reboot. Don't include the byond://, just give the address and port.
-SERVER 67.209.237.10:22000
+SERVER 198.199.101.134:22000
 
 ## forum address
 FORUMURL http://spacecommune.com/
@@ -198,7 +198,7 @@ WIKIURL http://www.baystation12.net/wiki/
 BANAPPEALS http://spacecommune.com/forumdisplay.php?fid=8
 
 ## Donate Button URL
-DONATEURL http://donate.bestrp.net/
+DONATEURL 
 
 ## In-game features
 ## spawns a spellbook which gives object-type spells instead of verb-type spells for the wizard
