@@ -493,3 +493,29 @@
 
 	flesh_color = "#34AF10"
 	blood_color = "#004400"
+
+
+/datum/species/large_diona
+	name = "Large Diona"
+	icobase = 'icons/mob/human_races/r_large_diona.dmi'
+	language = "Rootspeak"
+	attack_verb = "slash"
+	punch_damage = 5
+	primitive = /mob/living/carbon/monkey/diona
+
+	warning_low_pressure = 50
+	hazard_low_pressure = -1
+
+	cold_level_1 = 50
+	cold_level_2 = -1
+	cold_level_3 = -1
+
+	heat_level_1 = 2000
+	heat_level_2 = 3000
+	heat_level_3 = 4000
+
+
+	flags =  NO_BREATHE | REQUIRE_LIGHT | NO_SCAN | IS_PLANT | RAD_ABSORB | NO_BLOOD | NO_PAIN
+
+	blood_color = "#004400"
+	flesh_color = "#907E4A"
