@@ -472,3 +472,24 @@
 		return 1
 	else
 		return 0
+
+/datum/species/fish_people
+	name = "Corydora"
+	icobase = 'icons/mob/human_races/Fish.dmi'
+	language = "Sol common"
+	attack_verb = "fish-slapp"
+	punch_damage = 2
+	darksight = 3
+
+	cold_level_1 = 280 //Default 260 - Lower is better
+	cold_level_2 = 220 //Default 200
+	cold_level_3 = 130 //Default 120
+
+	heat_level_1 = 420 //Default 360 - Higher is better
+	heat_level_2 = 480 //Default 400
+	heat_level_3 = 1100 //Default 1000
+
+	flags = HAS_LIPS | HAS_UNDERWEAR | HAS_COLOR
+
+	flesh_color = "#34AF10"
+	blood_color = "#004400"
