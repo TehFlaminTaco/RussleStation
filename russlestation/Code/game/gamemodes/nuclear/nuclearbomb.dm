@@ -4,7 +4,7 @@ var/bomb_set
 	name = "\improper Nuclear Fission Explosive"
 	desc = "Uh oh. RUN!!!!"
 	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "nukeoff"
+	icon_state = "nuclearbomb0"
 	density = 1
 	var/deployable = 0.0
 	var/extended = 0.0
@@ -79,7 +79,7 @@ var/bomb_set
 				src.opened = 0
 				overlays -= image(icon, "npanel_open")
 				user << "You screw the control panel of [src] back on."
-			flick("nukedefused", src)
+			flick("nuclearbombc", src)
 
 		return
 	if (istype(O, /obj/item/weapon/wirecutters) || istype(O, /obj/item/device/multitool))
@@ -204,8 +204,8 @@ var/bomb_set
 		else
 			visible_message("\red \The [src] makes a highly unpleasant crunching noise. It looks like the anchoring bolts have been cut.")
 		if(!src.lighthack)
-			flick("nukedefused", src)
-			src.icon_state = "nukedisk"
+			flick("nuclearbombc", src)
+			src.icon_state = "nuclearbomb1"
 		src.extended = 1
 	return
 
@@ -267,8 +267,8 @@ obj/machinery/nuclearbomb/proc/nukehack_win(mob/user as mob)
 							if(src.safety == 1)
 								visible_message("\blue The [src] quiets down.")
 								if(!src.lighthack)
-									if (src.icon_state == "nukearm")
-										src.icon_state = "nukedisk"
+									if (src.icon_state == "nuclearbomb2")
+										src.icon_state = "nuclearbomb1"
 							else
 								visible_message("\blue The [src] emits a quiet whirling noise!")
 			if(href_list["act"] == "wire")
@@ -281,8 +281,8 @@ obj/machinery/nuclearbomb/proc/nukehack_win(mob/user as mob)
 							explode()
 					if(src.timing_wire == temp_wire)
 						if(!src.lighthack)
-							if (src.icon_state == "nukearm")
-								src.icon_state = "nukedisk"
+							if (src.icon_state == "nuclearbomb2")
+								src.icon_state = "nuclearbomb1"
 						src.timing = 0
 						bomb_set = 0
 					if(src.light_wire == temp_wire)
@@ -329,7 +329,7 @@ obj/machinery/nuclearbomb/proc/nukehack_win(mob/user as mob)
 					src.timing = !( src.timing )
 					if (src.timing)
 						if(!src.lighthack)
-							src.icon_state = "nukearm"
+							src.icon_state = "nuclearbomb2"
 						if(!src.safety)
 							bomb_set = 1//There can still be issues with this reseting when there are multiple bombs. Not a big deal tho for Nuke/N
 						else
@@ -337,7 +337,7 @@ obj/machinery/nuclearbomb/proc/nukehack_win(mob/user as mob)
 					else
 						bomb_set = 0
 						if(!src.lighthack)
-							src.icon_state = "nukedisk"
+							src.icon_state = "nuclearbomb1"
 				if (href_list["safety"])
 					src.safety = !( src.safety )
 					if(safety)
@@ -386,7 +386,7 @@ obj/machinery/nuclearbomb/proc/nukehack_win(mob/user as mob)
 	src.yes_code = 0
 	src.safety = 1
 	if(!src.lighthack)
-		src.icon_state = "nukeexplode"
+		src.icon_state = "nuclearbomb3"
 	playsound(src,'sound/machines/Alarm.ogg',100,0,5)
 	if (ticker && ticker.mode)
 		ticker.mode.explosion_in_progress = 1
